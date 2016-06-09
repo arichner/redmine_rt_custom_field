@@ -18,12 +18,12 @@ end
 module Redmine
   module FieldFormat
 
-    class RtFormat < RecordList
-      # include ActionView::Helpers::TextHelper
-      # include ActionView::Helpers::TagHelper
+    class RtFormat < LinkFormat
+      include ActionView::Helpers::TextHelper
+      include ActionView::Helpers::TagHelper
 
       add 'RT'
-      self.form_partial = 'custom_fields/formats/rt'
+      # self.form_partial = 'custom_fields/formats/rt'
 
       # def format_as_rt(value)
       #   if Setting.plugin_redmine_rt_custom_field['new_window'] == "true"
@@ -34,10 +34,10 @@ module Redmine
       #
       #   ActionController::Base.helpers.link_to(value, Setting.plugin_redmine_rt_custom_field['rt_url'] + "Ticket/Display.html?id=" + value, :target => target)
       # end
-      #
-      # def escape_html?
-      #   false
-      # end
+
+      def escape_html?
+        false
+      end
 
       def edit_as
         "string"
