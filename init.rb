@@ -23,6 +23,7 @@ module Redmine
       include ActionView::Helpers::TagHelper
 
       add 'RT'
+      self.form_partial = 'custom_fields/formats/rt'
 
       def format_as_rt(value)
         if Setting.plugin_redmine_rt_custom_field['new_window'] == "true"
